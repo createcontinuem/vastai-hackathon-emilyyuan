@@ -37,7 +37,7 @@ def chat(prompt: str, system: str = "You are a concise video-insights analyst.",
     }
     headers = {"Authorization": f"Bearer {key}",
                "Content-Type": "application/json",
-               "User-Agent": "pulse/0.1 (+https://github.com/)"}
+               "User-Agent": "sentiment-engine/0.1 (+https://github.com/)"}
     if config.WANDB_ENTITY_PROJECT:
         headers["OpenAI-Project"] = config.WANDB_ENTITY_PROJECT
     req = urllib.request.Request(

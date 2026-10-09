@@ -1,4 +1,4 @@
-"""Pulse — VAST Builders Challenge MVP (hackathon-scoped, 2026-10-09).
+"""Sentiment Engine — VAST Builders Challenge MVP (hackathon-scoped, 2026-10-09).
 
 A real-time video agent: understand footage (VSS/Cosmos) → fuse with audience
 reaction → search in plain language → trigger an action on what matters.

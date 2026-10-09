@@ -28,7 +28,7 @@ def main() -> int:
     req = urllib.request.Request(url, headers={
         "Authorization": f"Bearer {config.VLM_API_KEY}",
         # Cloudflare in front of the endpoint bans the default urllib UA (err 1010)
-        "User-Agent": "pulse/0.1 (+https://github.com/)",
+        "User-Agent": "sentiment-engine/0.1 (+https://github.com/)",
         "Accept": "application/json",
     })
     try:

@@ -1,8 +1,8 @@
-# Pulse — a real-time video agent that finds the moments that matter
+# Sentiment Engine — a real-time video agent that finds the moments that matter
 
 **VAST Builders Challenge** (tokens&, NYC · 2026-10-09). Built on the Sentiment Engine.
 
-Pulse ingests video, **understands the footage** (NVIDIA VSS / Cosmos-Reason on
+Sentiment Engine ingests video, **understands the footage** (NVIDIA VSS / Cosmos-Reason on
 CoreWeave), **fuses it with how the audience reacted**, lets you **search hours of
 video in plain language**, and **triggers an action** (cut the clip + write a brief)
 when something matters. When there's no commentary (a runway show), it falls back to
@@ -23,7 +23,7 @@ python -m hackathon.app          # http://localhost:8800
 ## Go live (sponsor endpoints)
 
 ```bash
-export PULSE_MOCK=0
+export SE_MOCK=0
 # vision: NVIDIA build.nvidia.com hosts Cosmos-Reason (CoreWeave serverless has no VLM)
 export NVIDIA_API_KEY=nvapi-...          # free from build.nvidia.com
 # VLM_URL + VLM_MODEL default to NVIDIA Cosmos-Reason; override only to self-host

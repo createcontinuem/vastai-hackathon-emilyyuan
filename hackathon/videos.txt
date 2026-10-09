@@ -1,4 +1,4 @@
-# Pulse test corpus — VAST Builders Challenge
+# Sentiment Engine test corpus — VAST Builders Challenge
 # format: <youtube-url>    # <type> | reaction lane?
 https://youtu.be/hvPRP72dpow   # Silent Hill Townfall Pt.1 (Hollow) — horror+commentary | reactions: yes
 https://youtu.be/RhWykEeyBwc   # Threshold "DID IT JUST TALK TO ME?!" (xKarutaClanx) — horror reaction | reactions: yes

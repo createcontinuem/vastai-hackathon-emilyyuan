@@ -1,7 +1,7 @@
 # HACKATHON_PLAN.md — VAST Builders Challenge (tokens&, NYC, 2026-10-09)
 
-**Working name:** *Pulse* — a real-time video agent that understands footage, finds the
-moments that matter, and acts on them. (Built on the Sentiment Engine.)
+**Sentiment Engine** — a real-time video agent that understands footage, finds the
+moments that matter, and acts on them.
 
 > One idea. Working. Shipped by end of day. Use 3+ sponsor tools. Demos > slides.
 
@@ -14,7 +14,7 @@ opaque wall of footage. Finding *what happened* and *what mattered* means scrubb
 a timeline by hand. At scale (a game launch = hundreds of hours across dozens of
 creators) that's impossible.
 
-**Pulse** turns footage into a **queryable, time-indexed understanding** you can ask
+**Sentiment Engine** turns footage into a **queryable, time-indexed understanding** you can ask
 in plain language — and, when the video has an audience reacting, it fuses *what
 happened on screen* with *how people reacted* to surface the moments that actually
 landed, then **triggers an action** (cut the clip + write the brief) when something

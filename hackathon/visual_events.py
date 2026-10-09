@@ -4,7 +4,7 @@ OpenAI-compatible endpoint (CoreWeave serverless / self-hosted vLLM / NVIDIA NIM
 INPUT:  local video path + video_id   (optionally limit_secs to bound a demo run)
 OUTPUT: List[VisualEvent] (timestamped on-screen events with VLM descriptions)
 
-Real path (PULSE_MOCK=0):
+Real path (SE_MOCK=0):
   1. ffmpeg samples frames at FRAME_FPS, grouped into CHUNK_SECS windows
   2. a few representative frames per window are sent to the VLM (OpenAI vision
      chat format, base64 JPEG data URIs) with a "describe the salient event" prompt
@@ -98,8 +98,8 @@ def _thin(frames: List[Path], n: int) -> List[Path]:
 
 # --- VLM call (OpenAI-compatible, stdlib HTTP) ------------------------------
 
-def _call_vlm(frames: List[Path]) -> str:
-    content = [{"type": "text", "text": PROMPT}]
+def _call_vlm(frames: List[Path], prompt: str = PROMPT) -> str:
+    content = [{"type": "text", "text": prompt}]
     for fp in frames:
         b64 = base64.b64encode(fp.read_bytes()).decode("ascii")
         content.append({"type": "image_url",
@@ -113,7 +113,7 @@ def _call_vlm(frames: List[Path]) -> str:
     headers = {"Authorization": f"Bearer {config.VLM_API_KEY}",
                "Content-Type": "application/json",
                # Cloudflare in front of some endpoints bans the default urllib UA
-               "User-Agent": "pulse/0.1 (+https://github.com/)"}
+               "User-Agent": "sentiment-engine/0.1 (+https://github.com/)"}
     req = urllib.request.Request(
         config.VLM_URL.rstrip("/") + "/chat/completions",
         data=json.dumps(payload).encode("utf-8"), headers=headers, method="POST")

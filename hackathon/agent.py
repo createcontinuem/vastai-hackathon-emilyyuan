@@ -1,4 +1,4 @@
-"""Pulse agent — orchestrates the MVP end-to-end and triggers the action.
+"""Sentiment Engine agent — orchestrates the MVP end-to-end and triggers the action.
 
 Flow (per docs/HACKATHON_PLAN.md):
   videos -> [ingest] -> [visual_events] -> [reactions] -> [fuse]
@@ -9,7 +9,7 @@ CLI:
   python -m hackathon.agent --videos hackathon/videos.txt --query "where does it talk to the player"
 
 Runs fully in MOCK mode (default) with no sponsor endpoints, so the pipeline and
-demo work offline. Set PULSE_MOCK=0 + endpoint envs to go live.
+demo work offline. Set SE_MOCK=0 + endpoint envs to go live.
 """
 
 import argparse
@@ -98,13 +98,13 @@ def make_brief(m: NotableMoment) -> Brief:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Run the Pulse video agent end-to-end.")
+    ap = argparse.ArgumentParser(description="Run the Sentiment Engine video agent end-to-end.")
     ap.add_argument("--videos", default="hackathon/videos.txt")
     ap.add_argument("--query", help="optional plain-language search to run")
     args = ap.parse_args()
 
     mode = "MOCK" if config.MOCK else "LIVE"
-    print(f"[..] Pulse agent ({mode})")
+    print(f"[..] Sentiment Engine agent ({mode})")
     video_ids = _read_videos(Path(args.videos))
     index, by_video = build(video_ids)
 

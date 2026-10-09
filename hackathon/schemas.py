@@ -1,4 +1,4 @@
-"""Data contracts for Pulse — the single source of truth for inputs/outputs.
+"""Data contracts for Sentiment Engine — the single source of truth for inputs/outputs.
 
 Every module speaks these types. Keeping them in one place is what makes the
 pipeline reproducible and evaluable (judging: clear docs of inputs/outputs).

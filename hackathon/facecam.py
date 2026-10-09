@@ -11,7 +11,7 @@ This yields the stimulus->response pair: (game screenshot, face crop, expression
 and populates the reaction lane. Videos with no webcam (e.g. a runway) -> corner
 is None -> no face crop, visual-only (handled upstream).
 
-Artifacts: tmp/pulse/shots/{video_id}/{game,face}_{t}.jpg
+Artifacts: tmp/sentiment-engine/shots/{video_id}/{game,face}_{t}.jpg
 """
 
 import re

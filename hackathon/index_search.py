@@ -22,7 +22,7 @@ class MomentIndex:
     def __init__(self) -> None:
         self._moments: List[NotableMoment] = []
         # Use VAST only when it's actually configured; otherwise local keyword
-        # search (independent of PULSE_MOCK, so live runs work without VAST creds).
+        # search (independent of SE_MOCK, so live runs work without VAST creds).
         self._use_vast = bool(config.VAST_ENDPOINT and config.VAST_API_KEY)
 
     def add(self, moments: List[NotableMoment]) -> None:

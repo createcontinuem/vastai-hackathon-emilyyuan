@@ -1,7 +1,7 @@
-"""Central config for Pulse. Endpoints via env vars; never hardcode keys.
+"""Central config for Sentiment Engine. Endpoints via env vars; never hardcode keys.
 
 MOCK mode (default ON) lets the whole pipeline + UI run with canned data so the
-demo never blocks on a sponsor endpoint. Flip PULSE_MOCK=0 once endpoints are live.
+demo never blocks on a sponsor endpoint. Flip SE_MOCK=0 once endpoints are live.
 """
 
 import os
@@ -17,10 +17,10 @@ except Exception:
     pass  # dotenv optional; shell-exported env vars still work
 DATA_DIR = ROOT / "data"
 FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"   # canned MOCK data
-WORK_DIR = ROOT / "tmp" / "pulse"                             # clips, intermediates
+WORK_DIR = ROOT / "tmp" / "sentiment-engine"                             # clips, intermediates
 
 # --- MOCK switch ------------------------------------------------------------
-MOCK = os.getenv("PULSE_MOCK", "1") == "1"
+MOCK = os.getenv("SE_MOCK", "1") == "1"
 
 # --- Vision (VLM): NVIDIA build.nvidia.com hosted Cosmos-Reason ---------------
 # CoreWeave serverless has NO vision model (verified via list_models -> 20 text-only
@@ -44,18 +44,18 @@ NEMOTRON_MODEL = os.getenv("NEMOTRON_MODEL", "nvidia/NVIDIA-Nemotron-3.5-Lightni
 # --- run bounds -------------------------------------------------------------
 # Cap how much of each video to process on a run (secs). 0 = whole video.
 # Start small to prove the live path cheaply, then raise/zero it.
-LIMIT_SECS = float(os.getenv("PULSE_LIMIT_SECS", "0")) or None
-FRAME_FPS = float(os.getenv("PULSE_FRAME_FPS", "0.5"))        # frames/sec sampled for the VLM
-CHUNK_SECS = float(os.getenv("PULSE_CHUNK_SECS", "30"))       # event granularity
+LIMIT_SECS = float(os.getenv("SE_LIMIT_SECS", "0")) or None
+FRAME_FPS = float(os.getenv("SE_FRAME_FPS", "0.5"))        # frames/sec sampled for the VLM
+CHUNK_SECS = float(os.getenv("SE_CHUNK_SECS", "30"))       # event granularity
 
 # --- VAST (storage + semantic search) --------------------------------------
 VAST_ENDPOINT = os.getenv("VAST_ENDPOINT", "")
 VAST_API_KEY = os.getenv("VAST_API_KEY", "")
-EMBED_MODEL = os.getenv("PULSE_EMBED_MODEL", "nvidia/llama-3.2-nv-embedqa-1b-v2")
+EMBED_MODEL = os.getenv("SE_EMBED_MODEL", "nvidia/llama-3.2-nv-embedqa-1b-v2")
 
 # --- Weights & Biases (eval + tracing) --------------------------------------
-WANDB_PROJECT = os.getenv("WANDB_PROJECT", "pulse-vast-hack")
+WANDB_PROJECT = os.getenv("WANDB_PROJECT", "sentiment-engine-vast-hack")
 WANDB_ENABLED = bool(os.getenv("WANDB_API_KEY"))
 
 # --- ingest -----------------------------------------------------------------
-MAX_HEIGHT = int(os.getenv("PULSE_MAX_HEIGHT", "720"))        # VLM needs to read on-screen text
+MAX_HEIGHT = int(os.getenv("SE_MAX_HEIGHT", "720"))        # VLM needs to read on-screen text

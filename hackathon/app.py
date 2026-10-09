@@ -1,4 +1,4 @@
-"""Minimal Pulse UI — plain-language search over the indexed moments.
+"""Minimal Sentiment Engine UI — plain-language search over the indexed moments.
 
 stdlib-only web server (no Flask dep needed) so it runs anywhere. One page:
 a search box, results as cards (timestamp + description + reaction badge), and the
@@ -20,13 +20,13 @@ from . import config
 PORT = 8800
 _INDEX, _BY_VIDEO = build(_read_videos(Path("hackathon/videos.txt")))
 
-PAGE = """<!doctype html><meta charset=utf-8><title>Pulse</title>
+PAGE = """<!doctype html><meta charset=utf-8><title>Sentiment Engine</title>
 <style>body{font:16px system-ui;max-width:760px;margin:40px auto;padding:0 16px}
 input{width:100%;padding:12px;font-size:18px}
 .card{border:1px solid #ddd;border-radius:10px;padding:14px;margin:12px 0}
 .t{color:#888;font-size:13px}.badge{background:#eef;border-radius:6px;padding:2px 8px;font-size:12px}
 iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:8px;margin-top:8px}</style>
-<h1>Pulse — ask the footage</h1>
+<h1>Sentiment Engine — ask the footage</h1>
 <form><input name=q placeholder="e.g. where does something talk to the player"
  value="__Q__" autofocus></form>
 <div id=r>__RESULTS__</div>"""
@@ -66,7 +66,7 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main() -> int:
-    print(f"[OK] Pulse UI on http://localhost:{PORT}  ({'MOCK' if config.MOCK else 'LIVE'})")
+    print(f"[OK] Sentiment Engine UI on http://localhost:{PORT}  ({'MOCK' if config.MOCK else 'LIVE'})")
     HTTPServer(("", PORT), Handler).serve_forever()
     return 0
 
