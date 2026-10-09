@@ -1,0 +1,5 @@
+yt-dlp>=2026.8
+python-dotenv
+pillow
+opencv-python
+numpy
